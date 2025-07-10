@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "name": "Раскольников",
+    "img": "images/rask.jpg",
+    "longitude": 30.310856,
+    "latitude": 59.927703,
+    "currentAdress": "Гражданская улица, 19",
+    "historicalAdress": "Столярный переулок, 5",
+    "information": "Пара абзацев информации",
+    "author": "Достоевский",
+    "fiction": "Преступление и наказание"
+  }
+]
+

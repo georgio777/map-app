@@ -12,6 +12,7 @@ export default function useDataLoader() {
         setLoading(true);
         setError(null);
 
+
         const response = await fetch('/data/characters.json', {
           signal: abortController.signal
         });
@@ -19,9 +20,7 @@ export default function useDataLoader() {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const jsonData = await response.json();
-        console.log(jsonData);
-        
+        const jsonData = await response.json();        
 
         setData(jsonData);
         setError(null)

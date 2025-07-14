@@ -14,5 +14,9 @@
 }
 
 .map-pin:hover {
-  transform: scale(1.1);
+  border-color: rgb(233, 233, 233);
+}
+
+.map-pin:active {
+  transform: scale(0.95);
 }

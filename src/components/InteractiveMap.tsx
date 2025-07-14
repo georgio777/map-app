@@ -1,13 +1,11 @@
 import * as React from 'react';
-import Map, { GeolocateControl, Marker } from 'react-map-gl/maplibre';
+import Map, { AttributionControl, GeolocateControl, Marker } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import circle from '@turf/circle';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import '../styles/InteractiveMap.css'
 import { useMemo } from 'react';
 import useStore from '../store/store';
-
-
 // Создаем геозону радиусом 7 миль вокруг центра СПб
 const CENTER_COORDS = [30.315965, 59.939009];
 const GEOFENCE = circle(CENTER_COORDS, 7, { units: 'miles' });
@@ -57,14 +55,16 @@ function InteractiveMap() {
   return (
     <div className="map-container">
       <Map
+        attributionControl={false}
         {...viewState}
         minZoom={10}
         maxZoom={18}
         onMove={onMove}
         style={{ width: '100%', height: '100%' }}
-        mapStyle="/positron.json"      >
+        mapStyle="/positron.json">
         <GeolocateControl position="top-left" />
         {pins}
+        {/* <AttributionControl position='top-right' customAttribution="Map design by me" /> */}
       </Map>
     </div>
   );

@@ -7,6 +7,7 @@ import '../styles/InteractiveMap.css';
 import { useMemo, useCallback } from 'react';
 import useStore from '../store/store';
 import { useSearchParams } from 'react-router-dom';
+import { MAPTILER_KEY } from '../config'
 
 // Геозона радиусом 7 миль вокруг центра СПб
 const CENTER_COORDS: [number, number] = [30.315965, 59.939009];
@@ -17,6 +18,7 @@ interface ViewState {
   latitude: number;
   zoom: number;
 }
+
 
 export default function InteractiveMap() {
   const setSearchParams = useSearchParams()[1];
@@ -78,7 +80,7 @@ export default function InteractiveMap() {
         maxZoom={18}
         onMove={onMove}
         style={{ width: '100%', height: '100%' }}
-        mapStyle="/positron.json"
+        mapStyle={`https://api.maptiler.com/maps/01980d77-7e8c-712b-a9a9-ae80a88527a9/style.json?key=${MAPTILER_KEY}`}
       >
         <GeolocateControl position="top-left" />
         {pins}

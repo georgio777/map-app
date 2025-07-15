@@ -5,8 +5,10 @@ type Store = {
   loading: boolean
   error: null | string
   currentCharacter: null | Character
+  currentId: null | number
 
   setCurrentCharacter: (currentCharacter: Character) => void
+  setCurrentId: (id: number) => void
   setData: (data: Characters) => void
   setError: (error: null | string) => void
   setLoading: (loading: boolean) => void

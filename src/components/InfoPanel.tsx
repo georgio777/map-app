@@ -95,7 +95,6 @@ function InfoPanel() {
         className="grip"
       ></div>
       <div className="panel-inner">
-        {currentCharacter?.author}
       </div>
     </div>
   );

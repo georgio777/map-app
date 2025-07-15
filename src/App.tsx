@@ -10,12 +10,12 @@ import { useEffect, useState, useCallback } from "react";
 
 function App() {
   // 1. читаем и записываем параметры из URL
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [ searchParams ] = useSearchParams();
   const idFromUrl = searchParams.get("id"); // например "42"
 
   // остальная логика
   const [isDesktop, setDesktop] = useState(() => window.innerWidth > 1024);
-  const { loading, data, currentCharacter, setCurrentCharacter } = useStore();
+  const { loading, data, currentCharacter, setCurrentCharacter, setCurrentId } = useStore();
 
   // ваш ресайз-хук
   const handleResize = useCallback(() => {
@@ -33,6 +33,7 @@ function App() {
   // 2. При загрузке данных — если в URL есть ?id=..., находим персонажа и устанавливаем
   useEffect(() => {
     if (!loading && data && idFromUrl && !currentCharacter) {
+      setCurrentId(Number(idFromUrl))
       const match = data.find((c) => String(c.id) === idFromUrl);
       if (match) {
         setCurrentCharacter(match);

@@ -92,7 +92,7 @@ const InfoPanelVertical: React.FC = () => {
         setCurrentY(clamped);
       };
 
-      const onUp = (e: PointerEvent) => {
+      const onUp = () => {
         window.removeEventListener('pointermove', onMove);
         window.removeEventListener('pointerup', onUp);
         // отпустить захват указателя

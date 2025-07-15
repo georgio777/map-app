@@ -19,8 +19,8 @@ interface ViewState {
 }
 
 export default function InteractiveMap() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const { data, setCurrentCharacter } = useStore();
+  const setSearchParams = useSearchParams()[1];
+  const { data, setCurrentCharacter, currentId, setCurrentId } = useStore();
   const [viewState, setViewState] = React.useState<ViewState>({
     longitude: CENTER_COORDS[0],
     latitude: CENTER_COORDS[1],
@@ -42,9 +42,14 @@ export default function InteractiveMap() {
           setCurrentCharacter(character);
           // 2) Записываем id в строку запроса
           setSearchParams({ id: String(character.id) });
+          // 3) Устанавливаем currentId
+          setCurrentId(character.id)
         }}
       >
         <img
+          style={{
+            borderColor: currentId === character.id ? 'rgb(36, 32, 32)' : 'white',
+          }}
           className="map-pin"
           src={character.img}
           alt={character.name}
@@ -52,7 +57,7 @@ export default function InteractiveMap() {
         />
       </Marker>
     ));
-  }, [data, setCurrentCharacter, setSearchParams]);
+  }, [data, setCurrentCharacter, setSearchParams, currentId, setCurrentId]);
 
   const onMove = useCallback(
     ({ viewState }: { viewState: ViewState }) => {

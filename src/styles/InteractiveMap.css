@@ -4,19 +4,19 @@
 }
 
 .map-pin {
-  width: 52px;
-  height: 52px;
+  width: 46px;
+  height: 46px;
   object-fit: cover;
   cursor: pointer;
   border: 6px solid white;
-  transition: transform .2s ease;
+  transition: .2s ease;
   border-radius: 50%;
 }
 
 .map-pin:hover {
-  border-color: rgb(233, 233, 233);
+  border-color: rgb(36, 32, 32);
 }
 
 .map-pin:active {
-  transform: scale(0.95);
+  transform: scale(0.9);
 }

@@ -6,8 +6,10 @@ const useStore = create<Store>()((set) => ({
   loading: false,
   error: null,
   currentCharacter: null,
+  currentId: null,
 
   setCurrentCharacter: (person) => set({ currentCharacter: person }),
+  setCurrentId: (id) => set({ currentId: id }),
   setData: (newData) => set({ data: newData}),
   setError: (error) => set({ error }),
   setLoading: (isLoading) => set({ loading: isLoading })

@@ -8,7 +8,7 @@
   transition: transform 0.2s ease;
   will-change: transform;
   border-radius: 4px 0 0 4px;
-  box-shadow: -5px 5px 55px 5px rgba(0, 0, 0, 0.432);
+  box-shadow: -16px 4px 25px 5px rgba(0, 0, 0, 0.432);
 }
 
 .grip {
@@ -43,4 +43,42 @@
   background-color: white;
   position: relative;
   z-index: 2;
+  padding: 40px;
+  background: #ffffff;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 82%, rgba(158, 158, 133, 1) 100%);
+  overflow: auto;
+}
+
+.character-name {
+  font-family: "Great Vibes", cursive;
+  font-size: 4rem;
+  line-height: 40px;
+  color: black;
+}
+
+.title-author {
+  padding: 24px 0;
+  font-size: 1.4rem;
+  color: #747F83;
+}
+
+.adress-wrapper {
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.adress {
+  font-size: 1.4rem;
+  color: black;
+}
+
+.adress span {
+  color: #747F83;
+}
+
+.additional-info {
+  font-size: 1.4rem;
+  color: black;
 }

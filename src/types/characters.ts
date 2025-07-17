@@ -1,14 +1,18 @@
+interface InfoBlock {
+  title: string;
+  descriptions: string[];
+}
+
 export interface Character {
   id: number;
   name: string;
-  img: string;
   longitude: number;
   latitude: number;
   currentAdress: string;
   historicalAdress: string;
-  information: string;
   author: string;
   fiction: string;
+  details: InfoBlock[]
 }
 
 export type Characters = Character[];

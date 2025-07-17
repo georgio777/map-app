@@ -4,19 +4,25 @@
 }
 
 .map-pin {
-  width: 46px;
-  height: 46px;
-  object-fit: cover;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
-  border: 6px solid white;
-  transition: .2s ease;
+  transition: transform .2s ease;
   border-radius: 50%;
-}
-
-.map-pin:hover {
-  border-color: rgb(36, 32, 32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .map-pin:active {
   transform: scale(0.9);
+}
+
+.pin-name {
+  text-transform: uppercase;
+  font-family: "Great Vibes", cursive;
+  font-size: 20px;
+  line-height: 22px;
+  margin-left: -6px;
+  margin-bottom: -4px;
 }

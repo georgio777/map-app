@@ -95,6 +95,38 @@ function InfoPanel() {
         className="grip"
       ></div>
       <div className="panel-inner">
+        {currentCharacter && (
+        <div className="character-info">
+          <p className="character-name">{currentCharacter.name}</p>
+          <p className="title-author">{currentCharacter.fiction}, {currentCharacter.author}</p>
+          <hr />
+          <div className="adress-wrapper">
+            <p className='adress'>
+              <span>Адрес:</span>
+              <br />
+              {currentCharacter.currentAdress}
+            </p>
+            <p className='adress'>
+              <span>Исторический адрес:</span>
+              <br />
+              {currentCharacter.historicalAdress}
+            </p>
+          </div>
+          <p className="additional-info">
+            {currentCharacter.details?.map((detail, index) => (
+            <div key={index} className="detail-block">
+              <h3 className="detail-title">{detail.title}</h3>
+              <div className="detail-content">
+                {detail.descriptions.map((desc, i) => (
+                  <p key={i} className="detail-description">{desc}</p>
+                ))}
+              </div>
+              {index < currentCharacter.details.length - 1 && <hr className="detail-divider" />}
+            </div>
+          ))}
+          </p>
+        </div>
+        )}
       </div>
     </div>
   );

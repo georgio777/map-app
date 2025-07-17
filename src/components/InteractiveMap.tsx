@@ -48,15 +48,20 @@ export default function InteractiveMap() {
           setCurrentId(character.id)
         }}
       >
-        <img
+        <div 
           style={{
-            borderColor: currentId === character.id ? 'rgb(36, 32, 32)' : 'white',
+            backgroundColor: currentId === character.id ? 'white' : 'black',
           }}
-          className="map-pin"
-          src={character.img}
-          alt={character.name}
           title={character.name}
-        />
+          className="map-pin">
+            <span 
+              style={{
+                color: currentId === character.id ? 'black' : 'white'
+              }}
+              className="pin-name">
+              {Array.from(character.name)[0]}
+            </span>
+        </div>
       </Marker>
     ));
   }, [data, setCurrentCharacter, setSearchParams, currentId, setCurrentId]);

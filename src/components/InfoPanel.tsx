@@ -112,7 +112,7 @@ function InfoPanel() {
               {currentCharacter.historicalAdress}
             </p>
           </div>
-          <p className="additional-info">
+          <div className="additional-info">
             {currentCharacter.details?.map((detail, index) => (
             <div key={index} className="detail-block">
               <h3 className="detail-title">{detail.title}</h3>
@@ -124,7 +124,7 @@ function InfoPanel() {
               {index < currentCharacter.details.length - 1 && <hr className="detail-divider" />}
             </div>
           ))}
-          </p>
+          </div>
         </div>
         )}
       </div>

@@ -59,9 +59,9 @@ const InfoPanelVertical: React.FC = () => {
   }
 
   // смещаемся в snap-полупозицию
-  setCurrentY(SNAP.half);
-  offsetRef.current = SNAP.half;
-}, [currentCharacter, SNAP.half]);
+  setCurrentY(SNAP.open);
+  offsetRef.current = SNAP.open;
+}, [currentCharacter, SNAP.open]);
 
   // Вычисляем ближайшую точку притяжения
   const getClosestPoint = useCallback(
@@ -148,8 +148,39 @@ const InfoPanelVertical: React.FC = () => {
         onPointerDown={onHandlePointerDown}
       />
       <div className="info-panel__content">
-        <h2>Информационная панель</h2>
-        <p>Перетащите меня вверх или вниз!</p>
+        {currentCharacter && (
+        <div className="character-info">
+          <p className="character-name">{currentCharacter.name}</p>
+          <p className="title-author">{currentCharacter.fiction}, {currentCharacter.author}</p>
+          <hr />
+          <div className="adress-wrapper">
+            <p className='adress'>
+              <span>Адрес:</span>
+              <br />
+              {currentCharacter.currentAdress}
+            </p>
+            <p className='adress'>
+              <span>Исторический адрес:</span>
+              <br />
+              {currentCharacter.historicalAdress}
+            </p>
+          </div>
+          <div className="additional-info">
+            {currentCharacter.details?.map((detail, index) => (
+            <div key={index} className="detail-block">
+              <h3 className="detail-title">{detail.title}</h3>
+              <div className="detail-content">
+                {detail.descriptions.map((desc, i) => (
+                  <p key={i} className="detail-description">{desc}</p>
+                ))}
+              </div>
+              {index < currentCharacter.details.length - 1 && <hr className="detail-divider" />}
+            </div>
+          ))}
+          </div>
+        </div>
+        )}
+
       </div>
     </div>
   );
